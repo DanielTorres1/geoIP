@@ -13,5 +13,5 @@ my $decoded_json = decode_json($json_response);
 my $isp = $decoded_json->{'isp'};
 my $regionName = $decoded_json->{'regionName'};
     
-print "$regionName;$isp \n";
+print "$regionName,$isp \n";
 
