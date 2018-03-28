@@ -21,19 +21,12 @@ RESET="\033[00m"       # Normal
 
 echo -e "${RED}[+]${BLUE} Copiando ejecutables ${RESET}"
 
-if which cpanm >/dev/null; then
-    echo -e "${GREEN}[+] Cpanm instalado ${RESET}"
-else
-    sudo cp cpanm /usr/bin
-    sudo chmod /usr/bin/cpanm
-fi
-
 sudo cp geoip.pl /usr/bin/
 sudo chmod a+x /usr/bin/geoip.pl
 
 
 echo -e "${RED}[+]${BLUE} Instalando librerias de perl ${RESET}"
 cd geoip
-sudo cpanm .
+sudo cpan .
 echo ""
 cd ../
