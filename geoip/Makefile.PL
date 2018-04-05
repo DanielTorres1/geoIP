@@ -1,6 +1,6 @@
 use 5.006;
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
@@ -8,18 +8,18 @@ WriteMakefile(
     AUTHOR           => q{Daniel Torres <daniel.torres@owasp.org>},
     VERSION_FROM     => 'lib/geoip.pm',
     ABSTRACT_FROM    => 'lib/geoip.pm',
-    LICENSE          => 'Artistic_2_0',
+    LICENSE          => 'artistic_2',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.006,
+    MIN_PERL_VERSION => '5.006',
     CONFIGURE_REQUIRES => {
-        'ExtUtils::MakeMaker' => 0,
+        'ExtUtils::MakeMaker' => '0',
     },
     BUILD_REQUIRES => {
-        'Test::More' => 0,
+        'Test::More' => '0',
     },
     PREREQ_PM => {
-        #'ABC'              => 1.6,
-        #'Foo::Bar::Module' => 5.0401,
+        #'ABC'              => '1.6',
+        #'Foo::Bar::Module' => '5.0401',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'geoip-*' },
