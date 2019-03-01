@@ -7,6 +7,13 @@ use Try::Tiny;
 my $geo_ip = geoip->new();
 
 my $ip = $ARGV[0];
+
+if ($ip eq "")
+{
+	print "Uso: \n geoip.pl 1.2.3.4 \n ";
+	die
+}
+
 $json_response = $geo_ip->get_data(ip => $ip);
 my $decoded_json;
 try {
@@ -15,7 +22,7 @@ try {
 	my $isp = $decoded_json->{'isp'};
 	my $regionName = $decoded_json->{'regionName'};
 	my $country = $decoded_json->{'country'};
-	print "$regionName ($country),$isp \n";
+	print "$regionName ($country);$isp \n";
 } 
 catch {   
 	print "";
