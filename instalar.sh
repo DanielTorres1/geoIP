@@ -2,8 +2,7 @@ function print_ascii_art {
 cat << "EOF"
  
  GeoIP
-			daniel.torres@owasp.org
-			https://github.com/DanielTorres1
+			daniel.torres@owasp.org			
 
 EOF
 }
