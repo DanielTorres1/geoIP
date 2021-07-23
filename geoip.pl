@@ -19,10 +19,13 @@ my $decoded_json;
 try {
 	$decoded_json = decode_json($json_response);
 	#print Dumper $decoded_json;
+	
 	my $isp = $decoded_json->{'org'};
 	my $regionName = $decoded_json->{'regionName'};
+	$regionName =~ s/,/ /g; 
+	$isp =~ s/,/ /g; 
 	my $country = $decoded_json->{'country'};
-	print "$regionName ($country);$isp \n";
+	print "$isp,$regionName ($country) \n";
 } 
 catch {   
 	print "";
