@@ -25,7 +25,19 @@ try {
 	$regionName =~ s/,/ /g; 
 	$isp =~ s/,/ /g; 
 	my $country = $decoded_json->{'country'};
-	print "$isp,$regionName ($country) \n";
+	my $hosting = $decoded_json->{'hosting'};
+
+	if ($hosting == 1) {
+		$hosting_type = "Hosting";
+	} else {
+		$hosting_type = "On-Premise";
+	}
+
+	if ($isp =~ /amazon/i || $isp =~ /microsoft/i || $isp =~ /google/i) {
+		$hosting_type = "On-Premise";
+	}
+
+	print "$isp,$regionName ($country),$hosting_type \n";
 } 
 catch {   
 	print "";

@@ -28,16 +28,13 @@ sub get_data  {
 	
 	my $ip = $options{ ip };
 	my $proxy_host = $self->proxy_host;
-
 	my $tries=0;
-
 	my @results;                            
-	my $url = "http://ip-api.com/json/$ip";
+	my $url = "http://ip-api.com/json/$ip?fields=status,message,org,country,regionName,hosting";
 	
 	my $response = $self->dispatch(url => $url ,method => 'GET');
 	my $status = $response->status_line;			
 	my $json_response = $response->decoded_content;          
-
 	
 return $json_response;
 }    
